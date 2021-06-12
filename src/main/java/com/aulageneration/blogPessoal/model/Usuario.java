@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
-
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
@@ -18,7 +17,7 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotNull
+	
 	@Size(min = 2, max = 100)
 	private String nome;
 	
@@ -30,6 +29,17 @@ public class Usuario {
 	@Size(min = 5)
 	private String senha;
 	
+	@NotNull
+	public Usuario() {
+
+	}
+	
+
+	public Usuario(@NotNull @Size(min = 5, max = 100) String usuario, @NotNull @Size(min = 5) String senha) {
+		super();
+		this.usuario = usuario;
+		this.senha = senha;
+	}
 
 	public long getId() {
 		return id;
